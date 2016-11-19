@@ -2,3 +2,4 @@
 $outfile = "c:\setup.exe"
 Invoke-WebRequest $url -outfile $outfile
 start-Process -Wait -FilePath $outfile -ArgumentList '/s'
+Restart-Computer
