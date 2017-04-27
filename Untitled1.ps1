@@ -18,8 +18,8 @@ $URI = New-Object "System.URIbuilder" $URL
 [System.IO.StreamReader]$reader = New-Object "System.IO.Streamreader" $str
 $result = $reader.ReadToEnd()
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-$url = "https://169.57.35.181:2015/setup2.exe"
-$outfile = "c:\setup2.exe"
+$url = "http://169.57.28.203/symantec/setup.exe"
+$outfile = "c:\setup.exe"
 Invoke-WebRequest $url -outfile $outfile
 start-Process -Wait -FilePath $outfile -ArgumentList '/s'
 Restart-Computer
