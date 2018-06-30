@@ -8,23 +8,23 @@ exec 2>&1
 #mkdir -p /home/deploy/.ssh
 
 #echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC3rUp7XVpH7WtNzwqMxltgkr3QksQlfCQ4dwekrwrrWiCyfewiEx8c1YTtVsTqioRNn40ND3kvTOv3kMkWEuf0S0xZg/40tQFX+GNM8O
-Cj/VtsHcrKaGF4jwTs3lnLqPrfhsy5COTg9LDZoQry4DNjljoJUPdvLUlJeUgv0l5Yl3+a+x9RftIhFKuGOpj/1dYfYUcBttQ24aTG52opqaGGqYqGY9n6gc/LIT2C1T5Pu893MF5ZnIRD5BsoJcbYQZqeutDE1DS+bUjZiEC+UyZRbG7xEPRigo9IBAaRqT/TK9DYr11Q9iYhyT2EnOYJ1xdvu6elxz4owp1XWkWX2nxx
+#Cj/VtsHcrKaGF4jwTs3lnLqPrfhsy5COTg9LDZoQry4DNjljoJUPdvLUlJeUgv0l5Yl3+a+x9RftIhFKuGOpj/1dYfYUcBttQ24aTG52opqaGGqYqGY9n6gc/LIT2C1T5Pu893MF5ZnIRD5BsoJcbYQZqeutDE1DS+bUjZiEC+UyZRbG7xEPRigo9IBAaRqT/TK9DYr11Q9iYhyT2EnOYJ1xdvu6elxz4owp1XWkWX2nxx
 #devops@opstack.pipl.com" >> /home/deploy/.ssh/authorized_keys
 
 #chown -R deploy:deploy ~deploy/
 
 
-export http_proxy=http://10.121.85.237:3128
-export https_proxy=$http_proxy
-export ftp_proxy=$http_proxy
-export dns_proxy=$http_proxy
-export rsync_proxy=$http_proxy
+#export http_proxy=http://10.121.85.237:3128
+#export https_proxy=$http_proxy
+#export ftp_proxy=$http_proxy
+#export dns_proxy=$http_proxy
+#export rsync_proxy=$http_proxy
 
-hostname
+#hostname
 
 echo "uptime:"
 
-#DEBIAN_FRONTEND=noninteractive apt-get -y  -q install sudo >>log.log 2>&1
+DEBIAN_FRONTEND=noninteractive apt-get -y  -q install sudo >>log.log 2>&1
 
 awk '{print int($1/3600)":"int(($1%3600)/60)":"int($1%60)}' /proc/uptime >> log.log
 
@@ -38,15 +38,15 @@ do
 done
 
 
-#  check that apt-get is over
-#while true; do
-#    lsof | grep "apt-get"
-#    if [ $? -eq 1 ]; then
-#        break
-#    fi
-#    sleep 5
-#    echo `date` >> /log.log
-#done
+  check that apt-get is over
+while true; do
+    lsof | grep "apt-get"
+    if [ $? -eq 1 ]; then
+        break
+    fi
+    sleep 5
+    echo `date` >> /log.log
+done
 
 #sleep 500
 # install sudo
